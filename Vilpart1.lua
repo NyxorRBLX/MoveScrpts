@@ -79,7 +79,7 @@ local function playAnimationSequence(player)
 		S2 = Instance.new("Sound", character)
 	}
 
-	sounds.S1.SoundId = "rbxassetid://104019397265738" 
+	sounds.S1.SoundId = "rbxassetid://117605899760975" 
 	sounds.S2.SoundId = "rbxassetid://5278196952"
 
 	animations.new1.AnimationId = "rbxassetid://12983333733"
@@ -98,7 +98,6 @@ local function playAnimationSequence(player)
 	task.spawn(function()
 		animTracks.new1:Play()
 		sounds.S1:Play()
-		sounds.S1.TimePosition = 0.7
 		animTracks.new1.TimePosition = 4
 		animTracks.new1:AdjustSpeed(2.8)
 		task.wait(0.3)
@@ -383,7 +382,7 @@ local function playAnimationSequence4(player)
 		new1 = Instance.new("Animation"),
 		new2 = Instance.new("Animation")
 	}
-
+	
 
 	local S1 = Instance.new("Sound", character)
 	local S2 = Instance.new("Sound", character)
@@ -415,7 +414,7 @@ local function playAnimationSequence4(player)
 		animTracks.new2:AdjustSpeed(20)
 		task.wait(1.1)
 		animTracks.new2:Stop()
-
+			
 		task.wait(PLAY_DURATION)
 		isAnimationSequenceActive = false
 
