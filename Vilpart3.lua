@@ -3,6 +3,7 @@ local player = Players.LocalPlayer
 local walkAnimId = "rbxassetid://17124067635" 
 local runAnimId = "rbxassetid://17124063826"  
 local idleAnimId1 = "rbxassetid://17124061663" 
+local idleAnimId1 = "rbxassetid://17124061663" 
 local function changeAnimations()
 	local character = player.Character or player.CharacterAdded:Wait()
 	local animate = character:WaitForChild("Animate")
