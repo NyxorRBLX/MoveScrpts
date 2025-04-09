@@ -159,23 +159,18 @@ local function playAnimationSequence3(player)
 	if not humanoid or not humanoidRootPart or not torso then return end
 
 	local animations = {
-		drop = Instance.new("Animation"),
-		drop1 = Instance.new("Animation")
+		drop = Instance.new("Animation")
 	}
 	local sounds = {
-		S1 = Instance.new("Sound", character),
-		S2 = Instance.new("Sound", character)
+		S1 = Instance.new("Sound", character)
 	}
 
 	sounds.S1.SoundId = "rbxassetid://90992723091327"
-	sounds.S2.SoundId = "rbxassetid://8187671085"
 
-	animations.drop.AnimationId = "rbxassetid://17420452843"
-	animations.drop1.AnimationId = "rbxassetid://12832505612"
+	animations.drop.AnimationId = "rbxassetid://16310343179"
 
 	local animTracks = {
 		Drop = humanoid:LoadAnimation(animations.drop),
-		Drop1 = humanoid:LoadAnimation(animations.drop1),
 	}
 
 	-- Stop all current animations
@@ -224,18 +219,11 @@ local function playAnimationSequence3(player)
 
 	-- Animation sequence
 	task.spawn(function()
-		animTracks.Drop1:Play()
-		sounds.S1:Play()
-		animTracks.Drop1.TimePosition = 1
-		LockOn2()
-		task.wait(0.1)
-		sounds.S2:Play()
-		task.wait(0.2)
-		animTracks.Drop1:Stop()
 		animTracks.Drop:Play()
-		animTracks.Drop.TimePosition = 16
-		animTracks.Drop:AdjustSpeed(1.5)
-		task.wait(1 + PLAY_DURATION)
+		sounds.S1:Play()
+		animTracks.Drop.TimePosition = 2.3
+		LockOn2()
+		task.wait(1.3 + PLAY_DURATION)
 
 		for _, track in pairs(animTracks) do
 			track:Stop()
@@ -437,3 +425,88 @@ local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
 
 humanoid.AnimationPlayed:Connect(onAnimationPlayed4)
+
+
+-- WallCombo --
+
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+
+local SWAP_DELAY = 0.7 
+local PLAY_DURATION = .2
+
+local isAnimationSequenceActive = false
+local idleAnimationTrack
+local function playAnimationSequenceW(player)
+	if isAnimationSequenceActive then return end
+	isAnimationSequenceActive = true
+
+	local character = player.Character
+	if not character then return end
+
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	if not humanoid then return end
+
+
+	local animations = {
+		W1 = Instance.new("Animation"),
+		W2 = Instance.new("Animation")
+	}
+	local sounds = {
+		S1 = Instance.new("Sound", character),
+		S2 = Instance.new("Sound", character)
+	}
+
+	sounds.S1.SoundId = "rbxassetid://72604971748686" 
+	sounds.S2.SoundId = "rbxassetid://5278196952"
+
+	animations.W1.AnimationId = "rbxassetid://17464644182"
+	animations.W2.AnimationId = "rbxassetid://16524237104"
+
+	local anim = {
+		W1 = humanoid:LoadAnimation(animations.W1),
+		W2 = humanoid:LoadAnimation(animations.W2)
+	}
+
+	for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
+		track:Stop()
+	end
+
+
+	task.spawn(function()
+		anim.W2:Play()
+		anim.W2.TimePosition = 1
+		anim.W2:AdjustSpeed(1)
+		sounds.S1:Play()
+		task.wait(2.4)
+		anim.W2:Stop()
+		anim.W1:Play()
+		anim.W1.TimePosition = .9
+		anim.W1:AdjustSpeed(2)
+		task.wait(.5)
+		anim.W1:Stop()
+		anim.W1:Play()
+		anim.W1.TimePosition = 3.5
+		task.wait(PLAY_DURATION)
+		isAnimationSequenceActive = false
+
+		for _, track in pairs(animTracks) do
+			track:Stop()
+		end
+	end)
+end
+
+
+local function onAnimationPlayedW(animationTrack)
+	if animationTrack.Animation.AnimationId == "rbxassetid://15955393872" then
+		playAnimationSequenceW(Players.LocalPlayer)
+	end
+end
+
+
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+humanoid.AnimationPlayed:Connect(onAnimationPlayedW)
+
