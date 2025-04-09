@@ -14,7 +14,8 @@ local wHeld = false
 local walkAnimId = "rbxassetid://17124067635" -- Replace with your custom walk animation ID
 local runAnimId = "rbxassetid://17124063826"  -- Replace with your custom run animation ID
 local idleAnimId1 = "rbxassetid://17124061663" -- Idle has 2 slots, this is the first
-
+local fallAnimId = "rbxassetid://17124061663"	
+local jumpAnimId = "rbxassetid://17124061663"								
 local function changeAnimations()
 	local character = player.Character or player.CharacterAdded:Wait()
 	local animate = character:WaitForChild("Animate")
@@ -27,6 +28,16 @@ local function changeAnimations()
 	-- Change run animation
 	if animate:FindFirstChild("run") and animate.run:FindFirstChild("RunAnim") then
 		animate.run.RunAnim.AnimationId = runAnimId
+	end
+
+	-- Change run animation
+	if animate:FindFirstChild("fall") and animate.fall:FindFirstChild("FallAnim") then
+		animate.fall.FallAnim.AnimationId = fallAnimId
+	end
+
+	-- Change run animation
+	if animate:FindFirstChild("jump") and animate.jump:FindFirstChild("jumpAnim") then
+		animate.jump.JumpAnim.AnimationId = fallAnimId
 	end
 
 	-- Change idle animations (usually two idle slots)
