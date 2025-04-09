@@ -14,6 +14,8 @@ local m2 = "17325522388"
 local m3 = "14001963401"
 local m4 = "15162694192"
 local ult = "17292505729"
+local slam = "16571909908"
+local upper = "10503381238"
 pcall(function() getgenv().dash:Disconnect() end)
 getgenv().dash = humanoid.AnimationPlayed:Connect(function(animationTrack)
 	if animationTrack.Animation.AnimationId == "rbxassetid://10479335397" then
@@ -127,5 +129,34 @@ getgenv().ult = humanoid.AnimationPlayed:Connect(function(animationTrack)
 		loadedAnim.Priority = Enum.AnimationPriority.Action2
 		loadedAnim:Play()
 		loadedAnim:AdjustSpeed(1.5)
+	end
+end)
+pcall(function() getgenv().slam:Disconnect() end)
+getgenv().ult = humanoid.AnimationPlayed:Connect(function(animationTrack)
+	if animationTrack.Animation.AnimationId == "rbxassetid://10470104242" then
+		local anim = Instance.new("Animation")
+		anim.AnimationId = "rbxassetid://" .. slam
+		local loadedAnim = humanoid:LoadAnimation(anim)
+		local S = Instance.new("Sound", character)
+		S.SoundId = "rbxassetid://136740106410252"
+		S:Play()
+		loadedAnim.Priority = Enum.AnimationPriority.Action2
+		loadedAnim:Play()
+		loadedAnim.TimePosition = 1.65
+		loadedAnim:AdjustSpeed(2)
+	end
+end)
+pcall(function() getgenv().upper:Disconnect() end)
+getgenv().upper = humanoid.AnimationPlayed:Connect(function(animationTrack)
+	if animationTrack.Animation.AnimationId == "rbxassetid://10503381238" then
+		local anim = Instance.new("Animation")
+		anim.AnimationId = "rbxassetid://" .. upper
+		local loadedAnim = humanoid:LoadAnimation(anim)
+		local S = Instance.new("Sound", character)
+		S.SoundId = "rbxassetid://135344570425077"
+		S:Play()
+		loadedAnim.Priority = Enum.AnimationPriority.Action2
+		loadedAnim:Play()
+		loadedAnim:AdjustSpeed(1.1)
 	end
 end)
