@@ -215,7 +215,7 @@ UserInputService.InputEnded:Connect(function(input)
 		moveDirection = moveDirection - Vector3.new(0, 0, 1)
 	elseif input.KeyCode == Enum.KeyCode.D then
 		moveDirection = moveDirection - Vector3.new(1, 0, 0)
-	elseif input.KeyCode == Enum.KeyCode.Space then
+	elseif input.KeyCode == Enum.KeyCode.X then
 		moveDirection = moveDirection - Vector3.new(0, 1, 0)
 	elseif input.KeyCode == Enum.KeyCode.C then
 		moveDirection = moveDirection - Vector3.new(0, -1, 0)
