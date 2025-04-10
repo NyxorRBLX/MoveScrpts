@@ -234,3 +234,12 @@ UserInputService.InputEnded:Connect(function(input)
 		end
 	end
 end)
+RunService.Heartbeat:Connect(function()
+	local character = LocalPlayer.Character
+	if character then
+		local rootPart = character:FindFirstChild("HumanoidRootPart")
+		if rootPart then
+			rootPart.Anchored = movementPaused
+		end
+	end
+end)
