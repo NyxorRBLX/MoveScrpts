@@ -2,6 +2,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NyxorRBLX/MoveScrpts/
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NyxorRBLX/MoveScrpts/refs/heads/main/Vilpart2.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NyxorRBLX/MoveScrpts/refs/heads/main/Vilpart3.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NyxorRBLX/MoveScrpts/refs/heads/main/Vilpart4.lua"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NyxorRBLX/MoveScrpts/refs/heads/main/AirCombatFlightV0.4.8.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NyxorRBLX/MoveScrpts/refs/heads/main/AirCombatFlightV0.5.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NyxorRBLX/MoveScrpts/refs/heads/main/AirCombatFOV.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NyxorRBLX/MoveScrpts/refs/heads/main/AirCombatLockOn.Lua"))()
