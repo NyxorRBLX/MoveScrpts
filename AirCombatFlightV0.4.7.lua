@@ -158,7 +158,7 @@ local function listenForDamage()
 	humanoid.HealthChanged:Connect(function(newHealth)
 		if newHealth < lastHealth then
 			movementPaused = true
-			task.delay(0.5, function()
+			task.delay(4.5, function()
 				movementPaused = false
 			end)
 		end
