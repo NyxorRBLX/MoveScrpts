@@ -7,7 +7,7 @@ local LocalPlayer = Players.LocalPlayer
 local Camera = Workspace.CurrentCamera
 local isLockOnEnabled = false
 local targetHumanoidRootPart = nil
-local smoothFactor = .4
+local smoothFactor = .9
 
 local function findNearestHumanoidRootPart()
     local character = LocalPlayer.Character
